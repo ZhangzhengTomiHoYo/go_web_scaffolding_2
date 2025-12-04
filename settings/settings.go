@@ -58,6 +58,10 @@ func Init() (err error) {
 	// 配置文件位置可配置多个
 	viper.SetConfigName("config") // 指定配置文件名 (不带后缀)
 	viper.AddConfigPath(".")      // 指定查找配置文件的路径 (这里使用相对路径)
+	//
+	//你给viper传一个字节流数据，得告诉是什么格式的
+	//基本上是配合远程配置中心使用的，告诉 viper 当前的数据使用什么格式去解析
+	//viper.SetConfigType("json)
 	err = viper.ReadInConfig()
 	if err != nil {
 		fmt.Printf("%v\n", err)
